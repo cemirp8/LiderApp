@@ -55,7 +55,7 @@ ROOT_URLCONF = 'LideraI.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/Python/Django/ProyectoFinal/LideraI/LideraI/Template/'],
+        'DIRS': ['D:/Python/Django/ProyectoFinal/LideraI/LiderApp/Template/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

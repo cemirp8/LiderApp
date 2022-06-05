@@ -5,6 +5,9 @@ class Actividad(models.Model):
     nombre = models.CharField(max_length=100)
     participantes = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.nombre+" "+str(self.participantes)
+
 #virtual = models.BooleanField()
 
 class Lider(models.Model):
