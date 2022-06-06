@@ -1,9 +1,17 @@
 {% extends "LiderApp/padre.html" %}
 {% load static %}
 {% block lema %}Will Rock Your Socks Off{% endblock %}
+
 {% block contenido %}
 <p></p>
-<h1 style="color:fuchsia">Disfruta de Masterclass</h1>
+<h2>Únete a nuestra comunidad de líderes</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+
+<form action="{%  url 'comunidad' %}" method="POST"> {% csrf_token %}
+    <table>
+        {{lider_formulario.as_table}}
+    </table>
+    <input style="color:red" type="submit" value="Enviar"> 
+</form>
 
 {% endblock %}

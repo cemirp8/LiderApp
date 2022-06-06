@@ -23,7 +23,7 @@ def inicio(self):
     documento = plantilla.render()
     return HttpResponse(documento)
 
-def masterclass(request):
+def comunidad(request):
         if request.method=="POST":
                 lider_formulario= LiderFormulario(request.POST)
                 print(lider_formulario)
@@ -40,4 +40,25 @@ def masterclass(request):
                         return render(request, "LiderApp/inicio.html")
         else:
                 lider_formulario=LiderFormulario()
-        return render(request, "MasterClass/masterclass.html", {'lider_formulario':lider_formulario})
+        return render(request, "Comunidad/comunidad.html", {'lider_formulario':lider_formulario})
+
+def masterclass(request):
+        return render(request, "MasterClass/masterclass.html")
+
+def principios(request):
+        if request.method=="POST":
+                principios_formulario= PrincipiosFormulario(request.POST)
+                print(principios_formulario)
+                
+                if principios_formulario.is_valid():
+                        informacion= principios_formulario.cleaned_data
+                        nombre= request.POST['nombre']
+                        apellido= request.POST['apellido']
+                        email= request.POST['email']
+                        webinar= request.POST['webinar']
+                        principio= Actividad(nombre=nombre, apellido=apellido, email=email, webinar=webinar)
+                        principio.save()
+                        return render(request, "LiderApp/inicio.html")
+        else:
+                principios_formulario=PrincipiosFormulario()
+        return render(request, "MasterClass/principios.html", {'principios_formulario':principios_formulario})
